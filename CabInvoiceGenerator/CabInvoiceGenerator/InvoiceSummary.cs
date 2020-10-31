@@ -4,16 +4,12 @@ using System.Text;
 
 namespace CabInvoiceGenerator
 {
-
     public class InvoiceSummary
     {
-        public double totalFare;
-
         // Variables.
-        private int numberOfRides;
-        private double Fare;
-        private double averageFare;
-
+        public int numberOfRides;
+        public double totalFare;
+        public double averageFare;
         /// <summary>
         /// Parameter Constructor For Setting Data.
         /// </summary>
@@ -23,10 +19,9 @@ namespace CabInvoiceGenerator
         {
             //Setting Data.
             this.numberOfRides = numberOfRides;
-            this.Fare = totalFare;
-            this.averageFare = this.Fare / this.numberOfRides;
+            this.totalFare = totalFare;
+            this.averageFare = this.totalFare / this.numberOfRides;
         }
-
         /// <summary>
         /// Overriding Equals Method.
         /// </summary>
@@ -36,20 +31,16 @@ namespace CabInvoiceGenerator
         {
             if (obj == null) return false;
             if (!(obj is InvoiceSummary)) return false;
-
             InvoiceSummary inputedObject = (InvoiceSummary)obj;
-            return this.numberOfRides == inputedObject.numberOfRides && this.Fare == inputedObject.Fare && this.averageFare == inputedObject.averageFare;
+            return this.numberOfRides == inputedObject.numberOfRides && this.totalFare == inputedObject.totalFare && this.averageFare == inputedObject.averageFare;
         }
-
         /// <summary>
         /// Overriding GetHashCode Method.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return this.numberOfRides.GetHashCode() ^ this.Fare.GetHashCode() ^ this.averageFare.GetHashCode();
+            return this.numberOfRides.GetHashCode() ^ this.totalFare.GetHashCode() ^ this.averageFare.GetHashCode();
         }
     }
-
-
 }

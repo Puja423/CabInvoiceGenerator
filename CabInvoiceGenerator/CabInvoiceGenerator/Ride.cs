@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace CabInvoiceGenerator
 {
     public class Ride
@@ -9,11 +8,6 @@ namespace CabInvoiceGenerator
         //Variables.
         public double distance;
         public int time;
-
-        public Ride()
-        {
-        }
-
         /// <summary>
         /// Parameter Constructor For Setting Data.
         /// </summary>
@@ -25,6 +19,4 @@ namespace CabInvoiceGenerator
             this.time = time;
         }
     }
-
-
 }
