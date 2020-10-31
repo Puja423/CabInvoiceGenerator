@@ -17,9 +17,7 @@ namespace CabInvoiceGenerator
             NULL_RIDES,
             INVALID_USER_ID
         }
-
         ExceptionType type;
-
         /// <summary>
         /// Parameter Constructor For Setting Exception type And Throwing Exception.
         /// </summary>
