@@ -16,7 +16,7 @@ namespace CabInvoiceGeneratorTest
             Assert.Pass();
         }
         [Test]
-        public void GivenArrayOfRides_ShouldReturn()
+        public void GivenRideDetails_ShouldReturnTotalFare()
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             double distance = 2.0;
@@ -71,8 +71,17 @@ namespace CabInvoiceGeneratorTest
             string userId = "123";
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             invoiceGenerator.AddRides(userId, rides);
-            Ride[] actual = invoiceGenerator.rides.GetRides(userId);
+            Ride[] actual = invoiceGenerator.rideRepository.GetRides(userId);
             Assert.AreEqual(rides, actual);
+        }
+        public void GivenRideDetails_ShouldReturnFareForPremiumRide()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
+            double distance = 2.0;
+            int time = 5;
+            double fare = invoiceGenerator.CalculateFare(distance, time);
+            double expected = 40;
+            Assert.AreEqual(expected, fare);
         }
     }
 }
